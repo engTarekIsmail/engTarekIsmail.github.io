@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive Power BI dashboard that turns raw AdventureWorks transactional data into one view for monitoring sales, order status, territories, and product categories.">
+    <title>AdventureWorks Sales Dashboard | Tarek Ismail Shabana</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">
+                    <img src="../logo.png" alt="Tarek Shabana Logo">
+                </a>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#experience">Experience</a></li>
+                        <li><a href="../index.html#projects">Projects</a></li>
+                        <li><a href="../index.html#education">Education</a></li>
+                        <li><a href="../index.html#skills">Skills</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                    <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
+                        <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                            <mask class="moon" id="moon-mask"><rect x="0" y="0" width="100%" height="100%" fill="white" /><circle cx="24" cy="10" r="6" fill="black" /></mask>
+                            <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+                            <g class="sun-beams" stroke="currentColor"><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></g>
+                        </svg>
+                    </button>
+                    <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="detail-back-wrap">
+            <a href="../index.html#projects" class="detail-back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                Back to Projects
+            </a>
+        </div>
+
+        <section class="detail-hero">
+            <span class="detail-kicker">Power BI Dashboard</span>
+            <h1>AdventureWorks Sales Dashboard</h1>
+            <p class="detail-tagline">An interactive Power BI dashboard that turns raw AdventureWorks transactional data into one view for monitoring sales, order status, territories, and product categories.</p>
+            <div class="detail-tags">
+                <span>Power BI</span>
+                <span>AdventureWorks</span>
+            </div>
+        </section>
+
+        <div class="detail-gallery">
+            <div class="detail-carousel">
+                <div class="detail-carousel-track">
+                    <img src="../images/adventureworks-powerbi/adventureworks-powerbi-1.png" alt="AdventureWorks Sales Dashboard - screenshot 1">
+                </div>
+                <button style="display:none" class="detail-carousel-btn prev" aria-label="Previous page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <button style="display:none" class="detail-carousel-btn next" aria-label="Next page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+                <div class="detail-carousel-counter" style="display:none">1 / 1</div>
+                <div class="detail-carousel-dots" style="display:none">
+                    <button class="detail-carousel-dot active" aria-label="Slide 1"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-content">
+            <h2>Overview</h2>
+            <p>The dashboard covers July 2011 to early 2014 and gives business stakeholders both high-level KPIs and granular drill-down.</p>
+            <h2>Insights &amp; Findings</h2>
+            <ul class="detail-list">
+                <li>Canada leads all territories with $11.9M in revenue, nearly double the second-place Northwest region.</li>
+                <li>Bikes are the top-selling category by items sold (9.1K), followed closely by Components.</li>
+                <li>Sales peaked in early 2014, showing strong growth against the 2011 baseline.</li>
+                <li>About 23% of orders are Cancelled, Rejected, or Backordered, a clear operational improvement opportunity.</li>
+                <li>France, the UK, and Germany together account for about $12.3M, nearly matching Canada alone.</li>
+            </ul>
+            <h2>Tools &amp; Stack</h2>
+            <div class="detail-tools-row">
+                <span>Power BI</span>
+                <span>DAX measures</span>
+                <span>Data modeling</span>
+            </div>
+        </div>
+        <div class="detail-cta">
+            <a href="https://github.com/engTarekIsmail/adventureworks-sales-dashboard" target="_blank" class="detail-github-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                View on GitHub
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Tarek Ismail Shabana. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
