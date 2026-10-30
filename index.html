@@ -1,744 +1,615 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tarek Ismail Shabana: Data Analyst & BI Developer in Cairo, Egypt. Power BI dashboards, SQL Server, Python and machine learning projects. Open to new opportunities.">
-    <meta name="author" content="Tarek Ismail Shabana">
-    <meta name="theme-color" content="#6D5B97">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Tarek Ismail Shabana | Data Analyst &amp; BI Developer">
-    <meta property="og:description" content="Power BI dashboards, SQL Server, Python and machine learning projects. Open to new opportunities.">
-    <meta property="og:url" content="https://engtarekismail.github.io/">
-    <meta property="og:image" content="https://engtarekismail.github.io/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tarek Ismail Shabana | Data Analyst &amp; BI Developer">
-    <meta name="twitter:description" content="Power BI dashboards, SQL Server, Python and machine learning projects.">
-    <meta name="twitter:image" content="https://engtarekismail.github.io/og-image.png">
-    <title>Tarek Ismail Shabana | Data Analyst & BI Developer</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarek Ismail Shabana | Data Analyst & BI Developer</title>
+  <meta name="description" content="Tarek Ismail Shabana: Data Analyst & BI Developer in Cairo, Egypt. Power BI, SQL Server, Python and machine learning projects.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] },
+          colors: {
+            brand: {
+              bg: '#FDFBF7', surface: '#FFFFFF', text: '#2D2A32', muted: '#6B6875',
+              pink: '#FFB3C6', coral: '#FF8FA3', lavender: '#CDB4DB', purple: '#A38FBF',
+            }
+          },
+          animation: {
+            'blob': 'blob 7s infinite', 'float': 'float 6s ease-in-out infinite',
+            'fade-in': 'fadeIn 0.4s ease-out forwards', 'spin-slow': 'spin 3s linear infinite',
+          },
+          keyframes: {
+            blob: { '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' }, '33%': { transform: 'translate(30px, -50px) scale(1.1)' }, '66%': { transform: 'translate(-20px, 20px) scale(0.9)' } },
+            float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
+            fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+          }
+        }
+      }
+    }
+  </script>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body { background-color: #FDFBF7; color: #2D2A32; overflow-x: hidden; }
+    .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.4); }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+
+    /* ====== إعدادات طباعة الـ PDF ====== */
+    @media print {
+      @page { margin: 1.5cm; }
+      body { background-color: #fff !important; color: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      
+      nav, footer, #scroll-progress, #to-top, .hero-btns, button, .project-link, .bg-blob, .absolute.top-0.left-0 {
+        display: none !important;
+      }
+      
+      section {
+        page-break-before: always;
+        page-break-inside: avoid;
+        padding: 20px 0 !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      
+      section#home { page-break-before: avoid; }
+      
+      .grid { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 15px !important; 
+      }
+      
+      .project-card {
+        break-inside: avoid;
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+      }
+      
+      .project-thumb { height: 120px !important; }
+      
+      .flex.gap-6 { flex-wrap: wrap !important; }
+      .w-48 { width: 30% !important; margin-bottom: 15px; }
+      
+      .hero-visual { display: none !important; }
+      .hero { min-height: auto !important; padding-top: 20px !important; }
+      .hero-copy { width: 100% !important; }
+    }
+  </style>
 </head>
 <body>
+  <div id="root"></div>
 
-    <header>
-        <div class="container">
-<nav>
-    <a href="index.html" class="logo">
-        <img src="logo.png" alt="Tarek Shabana Logo">
-    </a>
-    <div class="nav-right">
-        <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#volunteering">Volunteering</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#tools">Tools</a></li>
-                    <li><a href="#contact">Contact</a></li>
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    const CONFIG = {
+      name: "Tarek Ismail Shabana",
+      title: "Data Analyst | BI Developer",
+      location: "Cairo, Egypt",
+      email: "tarek.ismail.shabana@gmail.com",
+      phone: "+201090046430",
+      whatsapp: "https://wa.me/201090046430",
+      github: "https://github.com/engTarekIsmail",
+      linkedin: "https://www.linkedin.com/in/tarekshabana2002",
+      mostaql: "https://mostaql.com/u/Tarek_Ismail01",
+      cv: "https://drive.google.com/file/d/1tE_jFZTyP11YCIGOK-Ua-KgHB_cisWIR/view?usp=drive_link"
+    };
+
+    // Put your Mostaql feedback screenshots in images/feedback/ and list them here, e.g. "images/feedback/1.png"
+    const FEEDBACK_IMAGES = Array.from({ length: 12 }, (_, i) => `images/feedback/${i + 1}.png`);
+    const FB_EXTS = ["png", "jpg", "jpeg", "webp"];
+
+    const JOBS = [
+      { role: "Data Analyst (Freelance)", org: "Mostaql · Remote", date: "Jan 2026 – Present", bullets: ["Completed 20+ projects with a 5-star rating, delivering end-to-end analytics and BI solutions using Python, SQL, Power BI, Tableau, and Excel.", "Performed data extraction, web scraping, cleaning, EDA, and visualization to produce reliable business insights.", "Built interactive dashboards, analytical reports, and machine learning models tailored to client requirements.", "Gathered requirements and defined KPIs directly with clients to deliver customized reporting solutions."], tags: ["Power BI", "Python", "SQL", "Tableau", "Excel"] },
+      { role: "BI Developer (Internship)", org: "Intensive Code Camp, ITI · Beni Suef", date: "Jan 2026 – Jun 2026", bullets: ["Completed a 6-month intensive BI program, building interactive Power BI dashboards using Power Query, DAX, and data modeling.", "Collected, cleaned, and transformed data from multiple sources to ensure accuracy and consistency.", "Built ETL workflows and optimized data models to improve reporting performance.", "Designed KPI dashboards that delivered actionable insights for decision-making."], tags: ["Power BI", "Power Query", "DAX", "ETL", "Data Modeling"] },
+      { role: "Programming Instructor", org: "Jupiter Education · Remote · Part-time", date: "Mar 2026 – Present", bullets: ["Delivered structured programming lessons to young learners, introducing coding fundamentals and computational thinking concepts.", "Guided students in developing problem-solving, logical reasoning, and algorithmic thinking through hands-on activities and projects."], tags: ["Teaching", "Mentoring", "Problem Solving"] }
+    ];
+
+    const VOLUNTEER_PHOTOS = [
+      ["images/volunteering/life-makers-1.png", "Ramadan 2022 Campaign", "Execution Team"],
+      ["images/volunteering/life-makers-2.png", "Winter Campaign 2022–2023", "Funding Teams, Rescue Team"],
+      ["images/volunteering/life-makers-3.png", "Ramadan 2023 Campaign", "Funding Teams, “Hand in Hand” Team"],
+      ["images/volunteering/life-makers-4.png", "Eid Al-Adha Campaign", "Rescue Team"]
+    ];
+
+    const PROJECTS = [
+      { id: 1, title: "Egypt Water Quality Analysis & Prediction System", category: "Power BI", desc: "ITI graduation project on real Egyptian Water Company data: 20 Power BI dashboards, 6 SSRS reports, a Random Forest safety model (96.3% accuracy), and a Streamlit app with a GPT-powered chatbot.", tags: ["SQL Server","Power BI","SSRS","Python","Streamlit"], github: "https://github.com/engTarekIsmail/Egypt-Water-Quality-Analysis-Prediction-System", demo: "https://egypt-water-quality-analysis-prediction-system-0.streamlit.app/", images: ["images/water-quality/water-quality-1.png", "images/water-quality/water-quality-2.png", "images/water-quality/water-quality-3.png", "images/water-quality/water-quality-4.png", "images/water-quality/water-quality-5.png", "images/water-quality/water-quality-6.png", "images/water-quality/water-quality-7.png", "images/water-quality/water-quality-8.png"] },
+      { id: 2, title: "Airline Delay Analysis", category: "Power BI", desc: "A full BI pipeline on 1.93M US flight records: Python cleaning, a Star Schema, and a 2-page Power BI dashboard that uncovers the patterns behind delays.", tags: ["Python","Pandas","Star Schema","Power BI"], github: "https://github.com/engTarekIsmail/-Airline-Delay-Analysis-End-to-End-BI-Project", demo: "", images: ["images/airline/airline-1.png", "images/airline/airline-2.png"] },
+      { id: 3, title: "Bank Customer Churn Prediction", category: "Python & ML", desc: "A complete ML pipeline on 10,127 bank customers: exploration, a Random Forest churn model, and a deployed interactive Streamlit app.", tags: ["Python","Scikit-learn","Streamlit","EDA"], github: "https://github.com/engTarekIsmail/-Bank-Customer-Churn-Prediction-End-to-End-ML-Project", demo: "https://jadvswk9brjkkv3wacuqvh.streamlit.app/", images: ["images/bank-churn/bank-churn-1.png", "images/bank-churn/bank-churn-2.png", "images/bank-churn/bank-churn-3.png", "images/bank-churn/bank-churn-4.png"] },
+      { id: 4, title: "AdventureWorks Sales Dashboard", category: "Power BI", desc: "An interactive Power BI dashboard on AdventureWorks data (2011 to early 2014): sales performance, order status, top territories, and category trends.", tags: ["Power BI","DAX","AdventureWorks"], github: "https://github.com/engTarekIsmail/adventureworks-sales-dashboard", demo: "", images: ["images/adventureworks-powerbi/adventureworks-powerbi-1.png"] },
+      { id: 5, title: "AdventureWorks Excel Dashboard", category: "Excel", desc: "An interactive Excel dashboard analyzing product sales (2011 to 2014), built on a Star Schema data model in Power Query.", tags: ["Excel","Power Query","Star Schema"], github: "https://github.com/engTarekIsmail/adventureworks-sales-dashboard-excel", demo: "", images: ["images/adventureworks-excel/adventureworks-excel-1.png"] },
+      { id: 6, title: "Nobel Prize Dashboard", category: "Excel", desc: "An Excel dashboard analyzing 1,000 Nobel Prize awards by category, country, institution, gender, and age, with interactive filters.", tags: ["Excel","Dashboard Design","Pivot Tables"], github: "https://github.com/engTarekIsmail/Nobel-Prize-Dashboard", demo: "", images: ["images/nobel-prize/nobel-prize-1.png"] }
+    ];
+
+    const SKILLS = {
+      "Data Analysis": ["Excel", "Data Cleaning", "EDA", "KPI Design", "Business Reporting"],
+      "BI & Visualization": ["Power BI", "DAX", "Tableau", "SSRS", "Dashboards"],
+      "Data Engineering": ["ETL with SSIS", "SSAS", "Data Warehousing", "Star & Snowflake Schema", "Power Query"],
+      "Databases": ["SQL Server", "Joins & CTEs", "Window Functions", "Stored Procedures", "Views & Triggers", "Indexing & Functions"],
+      "Python & ML": ["Python", "Pandas", "Scikit-learn", "Random Forest", "Streamlit"]
+    };
+
+    const Section = ({ id, children, className = "" }) => {
+      const ref = useRef(null);
+      useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-10');
+          }
+        }, { threshold: 0.1 });
+        if (ref.current) observer.observe(ref.current);
+        return () => observer.disconnect();
+      }, []);
+      return <section id={id} ref={ref} className={`py-20 opacity-0 translate-y-10 transition-all duration-1000 ease-out ${className}`}>{children}</section>;
+    };
+
+    const AnimatedCounter = ({ end, label, suffix = "+" }) => {
+      const [count, setCount] = useState(0);
+      const ref = useRef(null);
+      useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+            let start = 0;
+            const timer = setInterval(() => {
+              start += 1; setCount(start);
+              if (start === end) clearInterval(timer);
+            }, 2000 / end);
+            observer.unobserve(entry.target);
+          }
+        }, { threshold: 0.5 });
+        if (ref.current) observer.observe(ref.current);
+        return () => observer.disconnect();
+      }, [end]);
+      return (
+        <div ref={ref} className="text-center p-6 bg-white rounded-2xl shadow-sm border border-brand-pink/20">
+          <div className="text-4xl md:text-5xl font-display font-bold text-brand-coral mb-2">{count}{suffix}</div>
+          <div className="text-brand-muted font-medium text-sm md:text-base">{label}</div>
+        </div>
+      );
+    };
+
+    function App() {
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+      const [filter, setFilter] = useState("All");
+      const [selectedProject, setSelectedProject] = useState(null);
+      const [lightboxIndex, setLightboxIndex] = useState(0);
+      const [selectedFeedback, setSelectedFeedback] = useState(null);
+      const [copied, setCopied] = useState(false);
+
+      useEffect(() => { 
+        document.body.style.overflow = (selectedProject || selectedFeedback) ? 'hidden' : 'auto'; 
+      }, [selectedProject, selectedFeedback]);
+
+      useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (e.key === 'Escape') {
+            setSelectedProject(null);
+            setSelectedFeedback(null);
+          }
+          if (selectedProject) {
+            if (e.key === 'ArrowRight') setLightboxIndex(prev => (prev + 1) % selectedProject.images.length);
+            if (e.key === 'ArrowLeft') setLightboxIndex(prev => (prev - 1 + selectedProject.images.length) % selectedProject.images.length);
+          }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, [selectedProject]);
+
+      const copyEmail = () => {
+        navigator.clipboard.writeText(CONFIG.email);
+        setCopied(true); setTimeout(() => setCopied(false), 2000);
+      };
+
+      const navLinks = ["Home", "About", "Skills", "Projects", "Experience", "Education", "Volunteering", "Contact"];
+      const filteredProjects = filter === "All" ? PROJECTS : PROJECTS.filter(p => p.category === filter);
+
+      return (
+        <div className="min-h-screen relative font-sans selection:bg-brand-pink selection:text-brand-text">
+          
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+            <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-brand-pink/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+            <div className="absolute top-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-lavender/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute bottom-[-20%] left-[20%] w-[45vw] h-[45vw] bg-brand-coral/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style={{ animationDelay: '4s' }}></div>
+          </div>
+
+          <nav className="fixed w-full top-0 z-50 glass shadow-sm">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center h-20">
+                <a href="#home" className="flex items-center gap-2 group">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-coral to-brand-lavender flex items-center justify-center text-white font-display font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">TS</div>
+                  <span className="font-display font-bold text-xl tracking-tight hidden sm:block">Tarek Shabana</span>
+                </a>
+                <div className="hidden md:flex space-x-1">
+                  {navLinks.map(link => (
+                    <a key={link} href={`#${link.toLowerCase()}`} className="px-3 py-2 rounded-lg text-sm font-medium text-brand-muted hover:text-brand-text hover:bg-white/50 transition-colors">{link}</a>
+                  ))}
+                </div>
+                <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 rounded-lg hover:bg-white/50">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /></svg>
+                </button>
+              </div>
+            </div>
+            {mobileMenuOpen && (
+              <div className="md:hidden glass border-t border-white/20 absolute w-full animate-fade-in">
+                <div className="px-4 pt-2 pb-6 space-y-1">
+                  {navLinks.map(link => (
+                    <a key={link} href={`#${link.toLowerCase()}`} onClick={() => setMobileMenuOpen(false)} className="block px-3 py-3 rounded-lg text-base font-medium hover:bg-white/50">{link}</a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </nav>
+
+          <section id="home" className="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 relative z-10">
+            <div className="lg:w-1/2 space-y-6 animate-fade-in hero-copy">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-pink/30 shadow-sm text-sm font-medium text-brand-coral">
+                <span className="w-2 h-2 rounded-full bg-brand-coral animate-pulse"></span> Available for opportunities
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
+                Turning Data Into <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-coral to-brand-purple">Meaningful Insights</span>
+              </h1>
+              <p className="text-lg text-brand-muted max-w-lg">I'm a Data Analyst and BI Developer in Cairo. I turn raw data into SQL pipelines, Power BI dashboards, and machine learning models that help people make decisions.</p>
+              <div className="flex flex-wrap gap-4 pt-4 hero-btns">
+                <a href="#projects" className="px-6 py-3 rounded-xl bg-brand-text text-white font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">Explore My Projects</a>
+                <a href="#contact" className="px-6 py-3 rounded-xl bg-white text-brand-text border border-gray-200 font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">Let's Connect</a>
+                <a href={CONFIG.cv} target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl bg-brand-pink/20 text-brand-text border border-brand-pink/30 font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                  Download CV
+                </a>
+              </div>
+            </div>
+            
+            <div className="lg:w-1/2 relative animate-float w-full hero-visual">
+              <div className="relative rounded-3xl bg-white/80 backdrop-blur-xl border border-white shadow-2xl p-6 aspect-[4/3] flex flex-col justify-between overflow-hidden">
+                <div className="flex justify-between items-center mb-4 border-b border-gray-100 pb-3">
+                  <div>
+                    <h3 className="text-sm font-bold text-gray-800">Impact Snapshot</h3>
+                    <p className="text-[10px] text-gray-500">Real numbers from my projects</p>
+                  </div>
+                  <div className="flex gap-2"><div className="w-3 h-3 rounded-full bg-brand-pink"></div><div className="w-3 h-3 rounded-full bg-brand-coral"></div><div className="w-3 h-3 rounded-full bg-brand-lavender"></div></div>
+                </div>
+                <div className="grid grid-cols-2 gap-4 flex-1">
+                  <div className="bg-white rounded-xl border border-gray-100 p-3 shadow-sm flex flex-col">
+                    <span className="text-[10px] text-gray-500 font-medium">Records Analyzed</span>
+                    <span className="text-lg font-bold text-gray-800 mb-2">1.93M</span>
+                    <div className="flex items-end justify-between h-full pt-2 gap-1">
+                      {[["h-1/3","bg-brand-pink/60"],["h-2/3","bg-brand-pink/80"],["h-full","bg-brand-coral"],["h-1/2","bg-brand-lavender"]].map(([h,c],i)=>(<div key={i} className="w-full flex flex-col items-center"><div className={`w-full rounded-t-sm ${h} ${c}`}></div></div>))}
+                    </div>
+                    <span className="text-[8px] text-gray-400 mt-1">US flight delays</span>
+                  </div>
+                  <div className="bg-white rounded-xl border border-gray-100 p-3 shadow-sm flex flex-col justify-between">
+                    <span className="text-[10px] text-gray-500 font-medium">Model Accuracy</span>
+                    <div className="flex items-center justify-center flex-1 relative">
+                      <div className="w-20 h-20 rounded-full border-[8px] border-brand-lavender/30 border-t-brand-coral animate-spin-slow"></div>
+                      <div className="absolute inset-0 flex flex-col items-center justify-center"><span className="text-xl font-bold text-gray-800">96.3%</span><span className="text-[8px] text-gray-500">Random Forest</span></div>
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-xl border border-gray-100 p-3 shadow-sm col-span-2 flex flex-col justify-between">
+                    <div className="flex justify-between items-center"><span className="text-[10px] text-gray-500 font-medium">Dashboards in one project</span><span className="text-[10px] text-gray-800 font-bold">20 Power BI + 6 SSRS</span></div>
+                    <svg className="w-full h-12 mt-2" preserveAspectRatio="none" viewBox="0 0 100 30">
+                      <defs><linearGradient id="grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#FF8FA3" /><stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" /></linearGradient></defs>
+                      <path d="M0,30 L20,15 L40,25 L60,5 L80,20 L100,0 L100,30 Z" fill="url(#grad)" opacity="0.2"/>
+                      <path d="M0,30 L20,15 L40,25 L60,5 L80,20 L100,0" fill="none" stroke="#FF8FA3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <Section id="achievements" className="bg-white/40 border-y border-white/60 relative z-10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <AnimatedCounter end={15} label="Happy Clients on Mostaql" />
+                <AnimatedCounter end={20} label="Freelance Projects Delivered" />
+                <AnimatedCounter end={6} label="Featured Portfolio Projects" suffix="" />
+              </div>
+            </div>
+          </Section>
+
+          <Section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="flex flex-col lg:flex-row gap-16 items-center">
+              <div className="lg:w-1/2 relative w-full max-w-md mx-auto">
+                <div className="relative z-10 rounded-[2rem] overflow-hidden border-4 border-white shadow-2xl">
+                  <img src="images/profile.jpg" alt="Tarek Ismail Shabana" className="w-full h-auto object-cover" />
+                </div>
+                <div className="absolute -inset-4 bg-gradient-to-tr from-brand-pink/40 to-brand-purple/40 rounded-[2.5rem] blur-xl -z-10"></div>
+                <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 z-20 flex items-center gap-3">
+                  <span className="text-2xl">🎓</span><div><p className="font-bold text-sm">ITI Graduate</p><p className="text-xs text-gray-500">BI & Data Analysis</p></div>
+                </div>
+                <div className="absolute -top-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 z-20 flex items-center gap-3">
+                  <span className="text-2xl">📊</span><div><p className="font-bold text-sm">5★ on Mostaql</p><p className="text-xs text-gray-500">Freelance Analyst</p></div>
+                </div>
+              </div>
+              <div className="lg:w-1/2 space-y-6">
+                <h2 className="text-3xl md:text-4xl font-display font-bold">About Me</h2>
+                <p className="text-brand-muted leading-relaxed">I'm a Data Analyst and BI Developer based in Cairo, with an ITI diploma in Business Intelligence & Data Analysis and a B.Sc. in Computer and Control Engineering from Shorouk Academy.</p>
+                <p className="text-brand-muted leading-relaxed">I build end-to-end analytics solutions: SQL Server and ETL, Power BI dashboards, SSRS reports, and Python machine learning. As a freelancer I've delivered 20+ projects for 15+ clients, working directly with them to define KPIs and deliver exactly what they need.</p>
+                <ul className="space-y-3 pt-4 mb-6">
+                  {["ITI graduation project: 20 dashboards, 6 SSRS reports, 96.3% accurate ML model", "5-star rated freelancer on Mostaql", "Part-time programming instructor who loves teaching"].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-brand-text"><span className="w-6 h-6 rounded-full bg-brand-pink/30 flex items-center justify-center text-brand-coral text-sm font-bold">✓</span>{item}</li>
+                  ))}
                 </ul>
-
-        <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
-            <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
-                <mask class="moon" id="moon-mask"><rect x="0" y="0" width="100%" height="100%" fill="white" /><circle cx="24" cy="10" r="6" fill="black" /></mask>
-                <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
-                <g class="sun-beams" stroke="currentColor"><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></g>
-            </svg>
-        </button>
-        <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-</nav>
-
-        </div>
-    </header>
-
-    <main>
-<!-- Hero -->
-        <section id="hero">
-            <!-- Reusable organic blob clip-paths for the profile photo frame -->
-            <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-                <defs>
-                    <clipPath id="blobPrimary" clipPathUnits="objectBoundingBox">
-                        <path d="M 0.9153 0.5628 C 0.8936 0.6487 0.8174 0.7184 0.7500 0.7835 C 0.6826 0.8486 0.5903 0.9537 0.5111 0.9535 C 0.4319 0.9533 0.3534 0.8424 0.2747 0.7823 C 0.1960 0.7222 0.0579 0.6709 0.0389 0.5930 C 0.0199 0.5151 0.1099 0.3970 0.1607 0.3151 C 0.2115 0.2331 0.2675 0.1287 0.3436 0.1012 C 0.4198 0.0736 0.5285 0.1219 0.6179 0.1497 C 0.7072 0.1775 0.8304 0.1992 0.8800 0.2680 C 0.9295 0.3369 0.9369 0.4768 0.9153 0.5628 Z"/>
-                    </clipPath>
-                    <clipPath id="blobEcho" clipPathUnits="objectBoundingBox">
-                        <path d="M 0.7716 0.8423 C 0.6858 0.9173 0.5403 1.0178 0.4421 1.0027 C 0.3440 0.9876 0.2532 0.8446 0.1829 0.7516 C 0.1126 0.6586 0.0102 0.5408 0.0202 0.4448 C 0.0301 0.3488 0.1529 0.2518 0.2427 0.1757 C 0.3324 0.0996 0.4596 -0.0211 0.5589 -0.0118 C 0.6583 -0.0026 0.7724 0.1371 0.8387 0.2312 C 0.9051 0.3253 0.9682 0.4508 0.9570 0.5526 C 0.9458 0.6545 0.8575 0.7673 0.7716 0.8423 Z"/>
-                    </clipPath>
-                </defs>
-            </svg>
-
-            <!-- Ambient data-chart backdrop: a growth line that draws itself in on load, confined to the bottom edge so it never crosses the name -->
-            <div class="hero-chart-bg" aria-hidden="true">
-                <svg viewBox="0 0 1200 420" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="heroAreaFill" x1="0" y1="0" x2="0" y2="1">
-                            <stop class="hero-area-stop-top" offset="0%"/>
-                            <stop class="hero-area-stop-bottom" offset="100%"/>
-                        </linearGradient>
-                    </defs>
-                    <rect class="hero-chart-bar" x="60" y="300" width="26" height="120" style="animation-delay:0.35s"/>
-                    <rect class="hero-chart-bar" x="160" y="260" width="26" height="160" style="animation-delay:0.42s"/>
-                    <rect class="hero-chart-bar" x="260" y="320" width="26" height="100" style="animation-delay:0.49s"/>
-                    <rect class="hero-chart-bar" x="360" y="230" width="26" height="190" style="animation-delay:0.56s"/>
-                    <rect class="hero-chart-bar" x="460" y="280" width="26" height="140" style="animation-delay:0.63s"/>
-                    <rect class="hero-chart-bar" x="560" y="200" width="26" height="220" style="animation-delay:0.70s"/>
-                    <rect class="hero-chart-bar" x="660" y="250" width="26" height="170" style="animation-delay:0.77s"/>
-                    <rect class="hero-chart-bar" x="760" y="170" width="26" height="250" style="animation-delay:0.84s"/>
-                    <rect class="hero-chart-bar" x="860" y="220" width="26" height="200" style="animation-delay:0.91s"/>
-                    <rect class="hero-chart-bar" x="960" y="140" width="26" height="280" style="animation-delay:0.98s"/>
-                    <rect class="hero-chart-bar" x="1060" y="190" width="26" height="230" style="animation-delay:1.05s"/>
-                    <path class="hero-chart-area" fill="url(#heroAreaFill)" d="M0,300 C100,320 200,260 300,270 C400,280 450,180 550,200 C650,220 700,120 800,140 C900,160 950,80 1050,90 C1120,96 1160,70 1200,60 L1200,420 L0,420 Z"/>
-                    <path class="hero-chart-line" d="M0,300 C100,320 200,260 300,270 C400,280 450,180 550,200 C650,220 700,120 800,140 C900,160 950,80 1050,90 C1120,96 1160,70 1200,60"/>
-                </svg>
+                <a href={CONFIG.cv} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-text text-white font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                  Download My CV
+                </a>
+              </div>
             </div>
+          </Section>
 
-            <div class="container">
-                <div class="hero-flex">
-                    <!-- Photo, left -->
-                    <div class="hero-photo-col hero-reveal">
-                        <div class="hero-photo-frame">
-                            <img src="profile-photo.jpg" alt="Tarek Ismail Shabana" class="hero-photo">
-                            <span class="photo-badge" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="18" y1="20" x2="18" y2="15"/></svg>
-                            </span>
-                        </div>
-                    </div>
+          <Section id="skills" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Technical Toolkit</h2>
+              <p className="text-brand-muted">From raw data to dashboards and models: the tools I use across the pipeline.</p>
+            </div>
+            
+            <div className="bg-white rounded-3xl p-8 shadow-xl border border-white/50 overflow-x-auto">
+              <div className="flex gap-6 min-w-max">
+                {Object.entries(SKILLS).map(([category, skills]) => (
+                  <div key={category} className="flex flex-col gap-3 w-48">
+                    <h3 className="font-bold text-brand-coral text-sm text-center border-b border-gray-100 pb-2">{category}</h3>
+                    {skills.map((skill, index) => (
+                      <div key={skill} className="px-4 py-2 rounded-xl bg-brand-bg border border-brand-pink/20 shadow-sm text-brand-text text-sm font-medium text-center hover:bg-brand-pink/10 transition-colors cursor-default">
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
 
-                    <!-- Text, right -->
-                    <div class="hero-text-col">
-                        <p class="hero-greeting hero-reveal">Hi</p>
-                        <h1 class="hero-name hero-reveal">I'm <span class="hero-typed-wrap"><span id="heroTypedName" class="hero-typed"></span><span class="hero-cursor" aria-hidden="true"></span></span></h1>
-                        <div class="subtitle-wrapper hero-reveal">
-                            <h2 id="subtitle">Data Analyst | BI Developer</h2>
-                        </div>
-                        <p class="tagline hero-reveal">"Data holds the answers. I help you find them."</p>
-
-                        <div class="hero-buttons hero-reveal">
-                            <a href="#projects" class="btn btn-primary">View My Work</a>
-                            <a href="https://drive.google.com/file/d/1tE_jFZTyP11YCIGOK-Ua-KgHB_cisWIR/view?usp=drive_link" target="_blank" class="btn btn-secondary">Download CV</a>
-                        </div>
-                        <!-- Hero Social Icons -->
-                        <div class="hero-socials hero-reveal">
-                            <a href="mailto:tarek.ismail.shabana@gmail.com" class="hero-social-link" title="Email Me">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                            </a>
-                            <a href="https://wa.me/201090046430" target="_blank" rel="noopener" class="hero-social-link" title="WhatsApp">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                            </a>
-                            <a href="https://www.linkedin.com/in/tarekshabana2002" target="_blank" class="hero-social-link" title="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                            </a>
-                            <a href="https://github.com/engTarekIsmail" target="_blank" class="hero-social-link" title="GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                            </a>
-                            <a href="https://khamsat.com/user/tarek_ismail001" target="_blank" class="hero-social-link" title="Khamsat">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                            </a>
-                            <a href="https://mostaql.com/u/Tarek_Ismail01" target="_blank" class="hero-social-link" title="Mostaql">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
-                            </a>
-                        </div>
-                    </div>
+          <Section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+              <div><h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Featured Projects</h2><p className="text-brand-muted max-w-xl">Dashboards, data pipelines, and ML models built with SQL Server, Power BI, Excel, and Python.</p></div>
+              <div className="flex flex-wrap gap-2">
+                {["All", "Power BI", "Excel", "Python & ML"].map(f => (
+                  <button key={f} onClick={() => setFilter(f)} className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors border ${filter === f ? 'bg-brand-text text-white border-brand-text' : 'bg-white text-brand-muted border-gray-200 hover:border-brand-coral hover:text-brand-coral'}`}>{f}</button>
+                ))}
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map(project => (
+                <div key={project.id} onClick={() => { setSelectedProject(project); setLightboxIndex(0); }} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 cursor-pointer flex flex-col hover:-translate-y-2 project-card">
+                  <div className="h-48 bg-gray-50 relative overflow-hidden border-b border-gray-100 project-thumb">
+                    <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onError={(e) => { e.target.src = "https://placehold.co/800x450/FDFBF7/6B6875?text=" + encodeURIComponent(project.title); }} />
+                    <div className="absolute inset-0 bg-brand-text/0 group-hover:bg-brand-text/10 transition-colors duration-300 flex items-center justify-center"><span className="opacity-0 group-hover:opacity-100 bg-white text-brand-text px-4 py-2 rounded-full font-medium text-sm shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">View Details</span></div>
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col">
+                    <div className="flex justify-between items-start mb-3"><span className="text-xs font-bold uppercase tracking-wider text-brand-coral bg-brand-pink/10 px-2 py-1 rounded">{project.category}</span></div>
+                    <h3 className="font-display font-bold text-xl mb-2 line-clamp-2">{project.title}</h3>
+                    <p className="text-brand-muted text-sm line-clamp-3 mb-4 flex-1">{project.desc}</p>
+                    <div className="flex flex-wrap gap-2 mt-auto">{project.tags.map(tag => <span key={tag} className="text-xs text-brand-muted bg-gray-100 px-2 py-1 rounded-md">{tag}</span>)}</div>
+                  </div>
                 </div>
+              ))}
             </div>
-        </section>
+          </Section>
 
-<!-- Stats -->
-        <section class="stats-strip" aria-label="Highlights">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-item"><span class="stat-number" data-target="20" data-suffix="+">20+</span><span class="stat-label">Freelance projects completed</span></div>
-                    <div class="stat-item"><span class="stat-number" data-target="5" data-suffix="★">5★</span><span class="stat-label">Client rating on Mostaql</span></div>
-                    <div class="stat-item"><span class="stat-number" data-target="20">20</span><span class="stat-label">Power BI dashboards in one project</span></div>
-                    <div class="stat-item"><span class="stat-number" data-target="1.93" data-decimals="2" data-suffix="M">1.93M</span><span class="stat-label">Flight records analyzed</span></div>
+          <Section id="experience" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-12"><h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Work Experience</h2><p className="text-brand-muted">Where I've applied data and teaching skills.</p></div>
+            <div className="relative border-l-2 border-brand-pink/50 ml-3 space-y-8">
+              {JOBS.map(job => (
+                <div key={job.role} className="relative pl-8">
+                  <span className="absolute -left-[9px] top-6 w-4 h-4 rounded-full bg-brand-coral border-4 border-brand-bg"></span>
+                  <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
+                      <div><h3 className="font-display font-bold text-xl">{job.role}</h3><p className="text-brand-coral font-medium text-sm mt-1">{job.org}</p></div>
+                      <span className="text-xs font-medium text-brand-purple bg-brand-purple/10 px-3 py-1 rounded-full whitespace-nowrap self-start">{job.date}</span>
+                    </div>
+                    <ul className="space-y-2 text-sm text-brand-muted mb-4">{job.bullets.map((b, i) => <li key={i} className="flex gap-2"><span className="text-brand-coral">✦</span><span>{b}</span></li>)}</ul>
+                    <div className="flex flex-wrap gap-2">{job.tags.map(t => <span key={t} className="text-xs text-brand-muted bg-gray-100 px-2 py-1 rounded-md">{t}</span>)}</div>
+                  </div>
                 </div>
+              ))}
             </div>
-        </section>
+          </Section>
 
-        <!-- About -->
-        <section id="about">
-            <div class="container">
-                <h2>About Me</h2>
-                <p>
-                    I'm a Data Analyst and BI Developer, an ITI graduate (Business Intelligence & Data Analysis program) with a Bachelor's degree in Computer and Control Engineering from Shorouk Academy. I deliver end-to-end analytics solutions, from SQL Server databases and ETL to Power BI dashboards, SSRS reports, and Python-based machine learning.
-                    <br><br>
-                    As a freelancer on Mostaql, I've completed 20+ projects with a 5-star rating. I work directly with clients to gather requirements, define KPIs, and deliver dashboards, analytical reports, and models tailored to what they actually need.
-                    <br><br>
-                    My ITI graduation project, an Egypt Water Quality Analysis & Prediction System, ran on real Egyptian Water Company data and brought together 20 Power BI dashboards, 6 SSRS reports, and a Random Forest model with 96.3% accuracy, deployed in a Streamlit app with a GPT-powered chatbot.
-                    <br><br>
-                    My technical toolkit includes Power BI, SQL Server, Python, Excel, and Tableau, with experience in data modeling (Star and Snowflake schemas), ETL with SSIS, SSAS, and SSRS, data cleaning, KPI design, and turning business requirements into actionable insights.
-                    <br><br>
-                    Beyond analysis, I enjoy teaching. I work part-time as a Programming Instructor at Jupiter Education, helping young learners build problem-solving and logical thinking through hands-on coding.
+          <Section id="freelance" className="bg-brand-text text-white rounded-[3rem] mx-4 sm:mx-6 lg:mx-auto max-w-7xl px-6 py-20 my-12 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-sm font-medium text-brand-pink mb-6"><span className="w-2 h-2 rounded-full bg-brand-pink"></span> Freelance Journey on Mostaql</div>
+                <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Freelance on Mostaql</h2>
+                <p className="text-gray-300 leading-relaxed mb-8">As a freelance data analyst on <strong>Mostaql</strong>, I've delivered <strong>20+ projects</strong> to <strong>15+ clients</strong> with a <strong>5-star rating</strong>. I handle everything from data cleaning and EDA to dashboards, reports, and machine learning models, starting with the client's KPIs.</p>
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                  <h3 className="font-display font-bold text-xl mb-4 flex items-center gap-2"><span className="text-brand-coral">✦</span> Platform</h3>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center border-b border-white/10 pb-4"><div><p className="font-semibold">Mostaql</p><p className="text-sm text-gray-400">Analytics & BI Services</p></div><span className="text-brand-pink font-bold">15+ Clients</span></div>
+                    <div className="flex justify-between items-center"><div><p className="font-semibold">Total Deliveries</p><p className="text-sm text-gray-400">Rated 5 stars</p></div><span className="text-brand-pink font-bold">20+ Projects</span></div>
+                  </div>
+                  <a href={CONFIG.mostaql} target="_blank" rel="noopener noreferrer" className="inline-block mt-5 text-sm text-brand-pink hover:underline">View my Mostaql profile →</a>
+                </div>
+              </div>
+              
+              <div id="reviews" className="scroll-mt-24">
+                <h2 className="text-2xl font-display font-bold mb-6">Client Feedback</h2>
+                {FEEDBACK_IMAGES.length > 0 ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {FEEDBACK_IMAGES.map((img, idx) => (
+                      <div 
+                        key={idx} 
+                        data-fb="1" onClick={(e) => setSelectedFeedback(e.currentTarget.querySelector("img").src)}
+                        className="group relative rounded-xl overflow-hidden border border-white/10 cursor-pointer bg-white/5 aspect-[4/3]"
+                      >
+                        <img src={img} data-i="0" onError={(e) => { const i = +(e.target.dataset.i || 0) + 1; if (i < FB_EXTS.length) { e.target.dataset.i = i; e.target.src = img.replace(/\.png$/, "." + FB_EXTS[i]); } else { e.target.closest("[data-fb]").style.display = "none"; } }} alt={`Client Feedback ${idx + 1}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <span className="text-white text-xs font-medium bg-black/60 px-3 py-1 rounded-full">View</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="bg-white/5 border border-white/10 border-dashed rounded-2xl p-10 flex flex-col items-center justify-center text-center h-[300px]">
+                    <svg className="w-12 h-12 text-white/20 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
+                    <p className="text-gray-400 font-medium">Client feedback will be featured here.</p>
+                    <p className="text-sm text-gray-500 mt-2">Screenshots from Mostaql will be uploaded soon.</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </Section>
+
+          <Section id="education" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center max-w-2xl mx-auto mb-16"><h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Education & Training</h2></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="space-y-6">
+                <h3 className="text-xl font-display font-bold text-brand-coral flex items-center gap-2"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg> Academic Degree</h3>
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 relative before:absolute before:left-0 before:top-6 before:bottom-6 before:w-1 before:bg-brand-coral before:rounded-r-lg">
+                  <h4 className="font-bold text-lg">Business Intelligence & Data Analysis Program</h4><p className="text-brand-text font-medium mt-1">Information Technology Institute (ITI)</p><p className="text-brand-muted text-sm mt-2">Beni Suef, Egypt · 6-month intensive program</p>
+                  <span className="inline-block mt-4 text-xs font-semibold bg-brand-bg px-3 py-1 rounded-full text-brand-purple border border-brand-purple/20">Jan 2026 – Jun 2026</span>
+                </div>
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 relative before:absolute before:left-0 before:top-6 before:bottom-6 before:w-1 before:bg-brand-coral before:rounded-r-lg">
+                  <h4 className="font-bold text-lg">B.Sc. Computer and Control Engineering</h4><p className="text-brand-text font-medium mt-1">Shorouk Academy</p><p className="text-brand-muted text-sm mt-2">Cairo, Egypt</p>
+                  <span className="inline-block mt-4 text-xs font-semibold bg-brand-bg px-3 py-1 rounded-full text-brand-purple border border-brand-purple/20">Sep 2020 – May 2025</span>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <h3 className="text-xl font-display font-bold text-brand-purple flex items-center gap-2"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg> Certifications</h3>
+                <div className="space-y-3">
+                  <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"><h4 className="font-bold text-brand-text">ITI: Business Intelligence & Data Analysis</h4><p className="text-brand-muted text-sm mt-1">Information Technology Institute (ITI)</p></div>
+                  <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"><h4 className="font-bold text-brand-text">Transact SQL Queries Using SQL Server</h4><p className="text-brand-muted text-sm mt-1">Mahara-Tech, ITI Platform</p></div>
+                  <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"><h4 className="font-bold text-brand-text">Database Fundamentals</h4><p className="text-brand-muted text-sm mt-1">Mahara-Tech, ITI Platform</p></div>
+                  <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"><h4 className="font-bold text-brand-text">ITIDA Gigs Freelance Training Program</h4><p className="text-brand-muted text-sm mt-1">ITIDA & eyouth</p></div>
+                  <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"><h4 className="font-bold text-brand-text">Getting Started as a Freelancer</h4><p className="text-brand-muted text-sm mt-1">Mostaql</p></div>
+                  <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"><h4 className="font-bold text-brand-text">Freelancing Basics</h4><p className="text-brand-muted text-sm mt-1">Mahara-Tech, ITI Platform</p></div>
+                </div>
+              </div>
+            </div>
+          </Section>
+
+          <Section id="volunteering" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-12"><h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Volunteering</h2></div>
+            <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 relative before:absolute before:left-0 before:top-6 before:bottom-6 before:w-1 before:bg-brand-purple before:rounded-r-lg">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
+                <div><h3 className="font-display font-bold text-xl">Volunteer</h3><p className="text-brand-purple font-medium text-sm mt-1">Life Makers Foundation · Community Development</p></div>
+                <span className="text-xs font-medium text-brand-purple bg-brand-purple/10 px-3 py-1 rounded-full whitespace-nowrap self-start">2022 – 2023</span>
+              </div>
+              <ul className="space-y-2 text-sm text-brand-muted mb-4">
+                {["Contributed to community development initiatives that support underprivileged groups.", "Collaborated with cross-functional teams to plan and execute social campaigns and coordinate field activities.", "Took part in data collection and reporting to monitor initiative performance and improve decision-making.", "Strengthened leadership, teamwork, and communication skills in dynamic, mission-driven environments."].map((b, i) => <li key={i} className="flex gap-2"><span className="text-brand-coral">✦</span><span>{b}</span></li>)}
+              </ul>
+              <div className="flex flex-wrap gap-2">{["Community Service", "Teamwork", "Leadership", "Data Collection"].map(t => <span key={t} className="text-xs text-brand-muted bg-gray-100 px-2 py-1 rounded-md">{t}</span>)}</div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+              {VOLUNTEER_PHOTOS.map(([src, t, s]) => (
+                <figure key={src} onClick={() => setSelectedFeedback(src)} className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <img src={src} alt={t} loading="lazy" className="w-full aspect-square object-cover" />
+                  <figcaption className="p-3 text-xs"><p className="font-bold text-brand-text">{t}</p><p className="text-brand-muted mt-0.5">{s}</p></figcaption>
+                </figure>
+              ))}
+            </div>
+          </Section>
+
+          <Section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 relative z-10">
+            <div className="bg-gradient-to-br from-white to-brand-pink/10 rounded-3xl p-10 md:p-16 shadow-xl border border-white text-center">
+              <div className="max-w-3xl mx-auto flex flex-col items-center">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">Let's Work Together</h2>
+                <p className="text-brand-muted mb-12 text-lg md:text-xl leading-relaxed">
+                  I'm currently open to freelance opportunities, internships, and full-time roles in Data Analytics and Business Intelligence.
                 </p>
-            </div>
-        </section>
-<!-- Experience -->
-        <section id="experience">
-    <div class="container">
-        <h2>Work Experience</h2>
+                
+                <div className="flex flex-wrap justify-center gap-6 mb-8">
+                  <a href={CONFIG.github} target="_blank" rel="noopener noreferrer" className="w-16 h-16 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg hover:text-brand-coral transition-all">
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" /></svg>
+                  </a>
+                  
+                  <a href={CONFIG.linkedin} target="_blank" rel="noopener noreferrer" className="w-16 h-16 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg hover:text-brand-purple transition-all">
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
 
-        <div class="timeline">
+                  <a href={`mailto:${CONFIG.email}`} className="w-16 h-16 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg hover:text-brand-coral transition-all">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  </a>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-role">Data Analyst (Freelance)</h3>
-                            <p class="timeline-company">Mostaql &nbsp;·&nbsp; Remote</p>
-                        </div>
-                        <span class="timeline-date">Jan 2026 – Present</span>
-                    </div>
+                  <a href={CONFIG.whatsapp} target="_blank" rel="noopener noreferrer" className="w-16 h-16 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg hover:text-green-600 transition-all">
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                  </a>
 
-                    <ul class="timeline-bullets">
-                        <li>Completed 20+ projects with a 5-star rating, delivering end-to-end analytics and BI solutions using Python, SQL, Power BI, Tableau, and Excel.</li>
-                        <li>Performed data extraction, web scraping, cleaning, EDA, and visualization to produce reliable business insights.</li>
-                        <li>Built interactive dashboards, analytical reports, and machine learning models tailored to client requirements.</li>
-                        <li>Gathered requirements and defined KPIs directly with clients to deliver customized reporting solutions.</li>
-                    </ul>
-
-                    <div class="timeline-tags">
-                        <span>Power BI</span>
-                        <span>Python</span>
-                        <span>SQL</span>
-                        <span>Tableau</span>
-                        <span>Excel</span>
-                    </div>
+                  <a href={CONFIG.mostaql} target="_blank" rel="noopener noreferrer" title="Mostaql" className="w-16 h-16 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg hover:text-brand-coral transition-all font-display font-bold text-2xl">M</a>
                 </div>
+                
+                <p className="text-sm text-brand-muted flex items-center gap-2 mt-4">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  Located in {CONFIG.location}
+                </p>
+              </div>
             </div>
+          </Section>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-role">BI Developer (Internship)</h3>
-                            <p class="timeline-company">Intensive Code Camp, ITI &nbsp;·&nbsp; Beni Suef</p>
-                        </div>
-                        <span class="timeline-date">Jan 2026 – Jun 2026</span>
-                    </div>
+          <footer className="border-t border-gray-200 py-8 text-center text-brand-muted text-sm bg-white/50 relative z-10">
+            <p>© {new Date().getFullYear()} {CONFIG.name}. All rights reserved.</p>
+            <p className="mt-1 mb-4">{CONFIG.title}</p>
+            
+          </footer>
 
-                    <ul class="timeline-bullets">
-                        <li>Completed a 6-month intensive BI program, building interactive Power BI dashboards using Power Query, DAX, and data modeling.</li>
-                        <li>Collected, cleaned, and transformed data from multiple sources to ensure accuracy and consistency.</li>
-                        <li>Built ETL workflows and optimized data models to improve reporting performance.</li>
-                        <li>Designed KPI dashboards that delivered actionable insights for decision-making.</li>
-                    </ul>
-
-                    <div class="timeline-tags">
-                        <span>Power BI</span>
-                        <span>Power Query</span>
-                        <span>DAX</span>
-                        <span>ETL</span>
-                        <span>Data Modeling</span>
-                    </div>
+          {/* PROJECT MODAL */}
+          {selectedProject && (
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-fade-in">
+              <div className="absolute inset-0 bg-brand-text/80 backdrop-blur-sm" onClick={() => setSelectedProject(null)}></div>
+              <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+                <div className="flex justify-between items-center p-6 border-b border-gray-100 bg-white sticky top-0 z-10">
+                  <div><span className="text-xs font-bold uppercase tracking-wider text-brand-coral bg-brand-pink/10 px-2 py-1 rounded mb-2 inline-block">{selectedProject.category}</span><h2 className="text-2xl font-display font-bold text-brand-text">{selectedProject.title}</h2></div>
+                  <button onClick={() => setSelectedProject(null)} className="p-2 rounded-full hover:bg-gray-100 transition-colors"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
                 </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-role">Programming Instructor</h3>
-                            <p class="timeline-company">Jupiter Education &nbsp;·&nbsp; Remote · Part-time</p>
-                        </div>
-                        <span class="timeline-date">Mar 2026 – Present</span>
+                <div className="p-6 overflow-y-auto custom-scrollbar">
+                  <p className="text-brand-muted mb-6">{selectedProject.desc}</p>
+                  <div className="flex flex-wrap gap-3 mb-6">
+                    {selectedProject.github && <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-xl bg-brand-text text-white text-sm font-medium hover:-translate-y-0.5 transition-all">View on GitHub</a>}
+                    {selectedProject.demo && <a href={selectedProject.demo} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-xl bg-brand-pink/20 border border-brand-pink/30 text-sm font-medium hover:-translate-y-0.5 transition-all">Live Demo</a>}
+                  </div>
+                  <div className="mb-8"><h4 className="font-semibold text-brand-text mb-3">Technologies Used</h4><div className="flex flex-wrap gap-2">{selectedProject.tags.map(tag => <span key={tag} className="text-sm text-brand-text bg-gray-100 px-3 py-1 rounded-lg border border-gray-200">{tag}</span>)}</div></div>
+                  <div>
+                    <h4 className="font-semibold text-brand-text mb-3">Project Screenshots</h4>
+                    <div className="relative rounded-2xl overflow-hidden bg-gray-50 border border-gray-200 group">
+                      <img src={selectedProject.images[lightboxIndex]} alt="Project screenshot" className="w-full h-auto aspect-video object-contain" onError={(e) => { e.target.src = "https://placehold.co/800x450/FDFBF7/6B6875?text=" + encodeURIComponent(selectedProject.title); }} />
+                      {selectedProject.images.length > 1 && (
+                        <>
+                          <button onClick={() => setLightboxIndex(prev => (prev - 1 + selectedProject.images.length) % selectedProject.images.length)} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"/></svg></button>
+                          <button onClick={() => setLightboxIndex(prev => (prev + 1) % selectedProject.images.length)} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg></button>
+                        </>
+                      )}
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">{lightboxIndex + 1} / {selectedProject.images.length}</div>
                     </div>
-
-                    <ul class="timeline-bullets">
-                        <li>Delivered structured programming lessons to young learners, introducing coding fundamentals and computational thinking concepts.</li>
-                        <li>Guided students in developing problem-solving, logical reasoning, and algorithmic thinking through hands-on activities and projects.</li>
-                    </ul>
-
-                    <div class="timeline-tags">
-                        <span>Teaching</span>
-                        <span>Mentoring</span>
-                        <span>Problem Solving</span>
-                    </div>
+                  </div>
                 </div>
+                <div className="p-6 border-t border-gray-100 bg-gray-50 flex justify-end gap-4"><button onClick={() => setSelectedProject(null)} className="px-6 py-2 rounded-xl bg-white border border-gray-200 font-medium hover:bg-gray-50 transition-colors">Close</button></div>
+              </div>
             </div>
+          )}
 
+          {/* FEEDBACK LIGHTBOX MODAL */}
+          {selectedFeedback && (
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-fade-in" onClick={() => setSelectedFeedback(null)}>
+              <div className="absolute inset-0 bg-brand-text/90 backdrop-blur-md"></div>
+              <div className="relative w-full max-w-4xl flex flex-col items-center justify-center" onClick={e => e.stopPropagation()}>
+                <button onClick={() => setSelectedFeedback(null)} className="absolute -top-12 right-0 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+                <img src={selectedFeedback} alt="Client Feedback Full" className="w-full h-auto max-h-[80vh] object-contain rounded-xl shadow-2xl" />
+              </div>
+            </div>
+          )}
         </div>
-    </div>
-</section>
-
-<!-- Volunteering -->
-        <section id="volunteering">
-            <div class="container">
-                <h2>Volunteering</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <div>
-                                    <h3 class="timeline-role">Volunteer</h3>
-                                    <p class="timeline-company">Life Makers Foundation &nbsp;·&nbsp; Community Development</p>
-                                </div>
-                                <span class="timeline-date">2022 – 2023</span>
-                            </div>
-                            <ul class="timeline-bullets">
-                                <li>Volunteered at Life Makers Foundation, contributing to community development initiatives that support underprivileged groups.</li>
-                                <li>Collaborated with cross-functional teams to plan and execute social campaigns, coordinate field activities, and ensure efficient service delivery to beneficiaries.</li>
-                                <li>Took part in data collection and reporting to monitor initiative performance and improve decision-making.</li>
-                                <li>Strengthened leadership, teamwork, and communication skills in dynamic, mission-driven environments focused on sustainable social impact.</li>
-                            </ul>
-                            <div class="timeline-tags">
-                                <span>Community Service</span>
-                                <span>Teamwork</span>
-                                <span>Leadership</span>
-                                <span>Data Collection</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="volunteer-gallery">
-                    <figure class="vol-photo" data-image="images/volunteering/life-makers-1.png">
-                        <img src="images/volunteering/life-makers-1.png" alt="Ramadan 2022 Campaign, Execution Team">
-                        <figcaption>Ramadan 2022 Campaign<br><span>Execution Team</span></figcaption>
-                    </figure>
-                    <figure class="vol-photo" data-image="images/volunteering/life-makers-2.png">
-                        <img src="images/volunteering/life-makers-2.png" alt="Winter Campaign 2022–2023, Funding Teams, Rescue Team">
-                        <figcaption>Winter Campaign 2022–2023<br><span>Funding Teams, Rescue Team</span></figcaption>
-                    </figure>
-                    <figure class="vol-photo" data-image="images/volunteering/life-makers-3.png">
-                        <img src="images/volunteering/life-makers-3.png" alt="Ramadan 2023 Campaign, Funding Teams, “Hand in Hand” Team">
-                        <figcaption>Ramadan 2023 Campaign<br><span>Funding Teams, “Hand in Hand” Team</span></figcaption>
-                    </figure>
-                    <figure class="vol-photo" data-image="images/volunteering/life-makers-4.png">
-                        <img src="images/volunteering/life-makers-4.png" alt="Eid Al-Adha Campaign, Rescue Team">
-                        <figcaption>Eid Al-Adha Campaign<br><span>Rescue Team</span></figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects">
-            <div class="container">
-                <span class="section-eyebrow">Selected Work</span>
-                <h2>Projects</h2>
-                <p class="section-intro">A collection of dashboards and analyses where raw data became a decision — built with SQL Server, Power BI, and Python.</p>
-                <div class="projects-grid">
-
-                    <!-- Egypt Water Quality Analysis & Prediction System -->
-                    <div class="project-card">
-                        <div class="card-carousel">
-                            <div class="card-carousel-track">
-                                <img src="images/water-quality/water-quality-1.png" alt="Egypt Water Quality Analysis & Prediction System - screenshot 1">
-                                <img src="images/water-quality/water-quality-2.png" alt="Egypt Water Quality Analysis & Prediction System - screenshot 2">
-                                <img src="images/water-quality/water-quality-3.png" alt="Egypt Water Quality Analysis & Prediction System - screenshot 3">
-                                <img src="images/water-quality/water-quality-4.png" alt="Egypt Water Quality Analysis & Prediction System - screenshot 4">
-                                <img src="images/water-quality/water-quality-5.png" alt="Egypt Water Quality Analysis & Prediction System - screenshot 5">
-                                <img src="images/water-quality/water-quality-6.png" alt="Egypt Water Quality Analysis & Prediction System - screenshot 6">
-                                <img src="images/water-quality/water-quality-7.png" alt="Egypt Water Quality Analysis & Prediction System - screenshot 7">
-                                <img src="images/water-quality/water-quality-8.png" alt="Egypt Water Quality Analysis & Prediction System - screenshot 8">
-                            </div>
-                            <button class="card-carousel-btn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-                            <button class="card-carousel-btn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-                            <div class="card-carousel-dots">
-                                <button class="card-carousel-dot active" aria-label="Slide 1"></button>
-                                <button class="card-carousel-dot" aria-label="Slide 2"></button>
-                                <button class="card-carousel-dot" aria-label="Slide 3"></button>
-                                <button class="card-carousel-dot" aria-label="Slide 4"></button>
-                                <button class="card-carousel-dot" aria-label="Slide 5"></button>
-                                <button class="card-carousel-dot" aria-label="Slide 6"></button>
-                                <button class="card-carousel-dot" aria-label="Slide 7"></button>
-                                <button class="card-carousel-dot" aria-label="Slide 8"></button>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Egypt Water Quality System</h3>
-                            <p>ITI graduation project on real Egyptian Water Company data: 20 Power BI dashboards, 6 SSRS reports, a Random Forest safety model (96.3% accuracy), and a Streamlit app with a GPT-powered chatbot.</p>
-                            <div class="tools"><span>SQL Server</span><span>Power BI</span><span>SSRS</span><span>Python</span><span>Streamlit</span></div>
-                            <a href="projects/water-quality.html" class="btn-project">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
-                                View Details
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Airline Delay Analysis -->
-                    <div class="project-card">
-                        <div class="card-carousel">
-                            <div class="card-carousel-track">
-                                <img src="images/airline/airline-1.png" alt="Airline Delay Analysis - screenshot 1">
-                                <img src="images/airline/airline-2.png" alt="Airline Delay Analysis - screenshot 2">
-                            </div>
-                            <button class="card-carousel-btn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-                            <button class="card-carousel-btn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-                            <div class="card-carousel-dots">
-                                <button class="card-carousel-dot active" aria-label="Slide 1"></button>
-                                <button class="card-carousel-dot" aria-label="Slide 2"></button>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Airline Delay Analysis</h3>
-                            <p>A full BI pipeline on 1.93M US flight records: Python cleaning, a Star Schema, and a 2-page Power BI dashboard that uncovers the patterns behind delays.</p>
-                            <div class="tools"><span>Python</span><span>Pandas</span><span>Star Schema</span><span>Power BI</span></div>
-                            <a href="projects/airline-analysis.html" class="btn-project">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
-                                View Details
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Bank Customer Churn Prediction -->
-                    <div class="project-card">
-                        <div class="card-carousel">
-                            <div class="card-carousel-track">
-                                <img src="images/bank-churn/bank-churn-1.png" alt="Bank Customer Churn Prediction - screenshot 1">
-                                <img src="images/bank-churn/bank-churn-2.png" alt="Bank Customer Churn Prediction - screenshot 2">
-                                <img src="images/bank-churn/bank-churn-3.png" alt="Bank Customer Churn Prediction - screenshot 3">
-                                <img src="images/bank-churn/bank-churn-4.png" alt="Bank Customer Churn Prediction - screenshot 4">
-                            </div>
-                            <button class="card-carousel-btn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-                            <button class="card-carousel-btn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-                            <div class="card-carousel-dots">
-                                <button class="card-carousel-dot active" aria-label="Slide 1"></button>
-                                <button class="card-carousel-dot" aria-label="Slide 2"></button>
-                                <button class="card-carousel-dot" aria-label="Slide 3"></button>
-                                <button class="card-carousel-dot" aria-label="Slide 4"></button>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Bank Customer Churn Prediction</h3>
-                            <p>A complete ML pipeline on 10,127 bank customers: exploration, a Random Forest churn model, and a deployed interactive Streamlit app.</p>
-                            <div class="tools"><span>Python</span><span>Scikit-learn</span><span>Streamlit</span><span>EDA</span></div>
-                            <a href="projects/bank-churn.html" class="btn-project">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
-                                View Details
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- AdventureWorks Sales Dashboard -->
-                    <div class="project-card">
-                        <div class="card-carousel">
-                            <div class="card-carousel-track">
-                                <img src="images/adventureworks-powerbi/adventureworks-powerbi-1.png" alt="AdventureWorks Sales Dashboard - screenshot 1">
-                            </div>
-                            <button style="display:none" class="card-carousel-btn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-                            <button style="display:none" class="card-carousel-btn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-                            <div class="card-carousel-dots" style="display:none">
-                                <button class="card-carousel-dot active" aria-label="Slide 1"></button>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>AdventureWorks Sales Dashboard</h3>
-                            <p>An interactive Power BI dashboard on AdventureWorks data (2011 to early 2014): sales performance, order status, top territories, and category trends.</p>
-                            <div class="tools"><span>Power BI</span><span>AdventureWorks</span></div>
-                            <a href="projects/adventureworks-powerbi.html" class="btn-project">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
-                                View Details
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Adventure Works Sales Dashboard (Excel) -->
-                    <div class="project-card">
-                        <div class="card-carousel">
-                            <div class="card-carousel-track">
-                                <img src="images/adventureworks-excel/adventureworks-excel-1.png" alt="Adventure Works Sales Dashboard (Excel) - screenshot 1">
-                            </div>
-                            <button style="display:none" class="card-carousel-btn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-                            <button style="display:none" class="card-carousel-btn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-                            <div class="card-carousel-dots" style="display:none">
-                                <button class="card-carousel-dot active" aria-label="Slide 1"></button>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Adventure Works Excel Dashboard</h3>
-                            <p>An interactive Excel dashboard analyzing product sales (2011 to 2014), built on a Star Schema data model in Power Query.</p>
-                            <div class="tools"><span>Excel</span><span>Power Query</span><span>Star Schema</span></div>
-                            <a href="projects/adventureworks-excel.html" class="btn-project">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
-                                View Details
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- UK Bank Customers Dashboard -->
-                    <div class="project-card">
-                        <div class="card-carousel">
-                            <div class="card-carousel-track">
-                                <img src="images/uk-bank/uk-bank-1.png" alt="UK Bank Customers Dashboard - screenshot 1">
-                            </div>
-                            <button style="display:none" class="card-carousel-btn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-                            <button style="display:none" class="card-carousel-btn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-                            <div class="card-carousel-dots" style="display:none">
-                                <button class="card-carousel-dot active" aria-label="Slide 1"></button>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>UK Bank Customers Dashboard</h3>
-                            <p>A Tableau dashboard on UK bank customers: regional distribution, demographics, job classification, and balances, with dynamic bin parameters.</p>
-                            <div class="tools"><span>Tableau</span></div>
-                            <a href="projects/uk-bank-tableau.html" class="btn-project">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
-                                View Details
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Nobel Prize Dashboard -->
-                    <div class="project-card">
-                        <div class="card-carousel">
-                            <div class="card-carousel-track">
-                                <img src="images/nobel-prize/nobel-prize-1.png" alt="Nobel Prize Dashboard - screenshot 1">
-                            </div>
-                            <button style="display:none" class="card-carousel-btn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-                            <button style="display:none" class="card-carousel-btn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-                            <div class="card-carousel-dots" style="display:none">
-                                <button class="card-carousel-dot active" aria-label="Slide 1"></button>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Nobel Prize Dashboard</h3>
-                            <p>An Excel dashboard analyzing 1,000 Nobel Prize awards by category, country, institution, gender, and age, with interactive filters.</p>
-                            <div class="tools"><span>Excel</span><span>Dashboard design</span></div>
-                            <a href="projects/nobel-prize.html" class="btn-project">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
-                                View Details
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-<!-- Education -->
-        <section id="education">
-            <div class="container">
-                <h2>Education</h2>
-                <div class="education-card">
-                    <div class="edu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                    </div>
-                    <div class="edu-body">
-                        <div class="edu-header">
-                            <div>
-                                <h3 class="edu-university">Information Technology Institute (ITI)</h3>
-                                <p class="edu-faculty">Beni Suef, Egypt</p>
-                                <p class="edu-major">Business Intelligence & Data Analysis Program (6 months)</p>
-                            </div>
-                            <span class="edu-date">Jan 2026 – Jun 2026</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="education-card">
-                    <div class="edu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                    </div>
-                    <div class="edu-body">
-                        <div class="edu-header">
-                            <div>
-                                <h3 class="edu-university">Shorouk Academy</h3>
-                                <p class="edu-faculty">Cairo, Egypt</p>
-                                <p class="edu-major">Bachelor's Degree: Computer and Control Engineering</p>
-                            </div>
-                            <span class="edu-date">Sep 2020 – May 2025</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-<!-- Certifications -->
-        <section id="certifications">
-            <div class="container">
-                <h2>Certifications</h2>
-                <div class="certifications-grid">
-                    <div class="cert-card" data-image="images/certificates/cert-iti.png">
-                        <img src="images/certificates/cert-iti.png" alt="ITI: Business Intelligence & Data Analysis Program" class="cert-thumbnail">
-                        <div class="cert-text">
-                            <p>ITI: Business Intelligence & Data Analysis Program</p>
-                            <span>Information Technology Institute (ITI)</span>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-image="images/certificates/cert-sql-server.png">
-                        <img src="images/certificates/cert-sql-server.png" alt="Transact SQL Queries Using SQL Server" class="cert-thumbnail">
-                        <div class="cert-text">
-                            <p>Transact SQL Queries Using SQL Server</p>
-                            <span>Mahara-Tech, ITI Platform</span>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-image="images/certificates/cert-database-fundamentals.png">
-                        <img src="images/certificates/cert-database-fundamentals.png" alt="Database Fundamentals" class="cert-thumbnail">
-                        <div class="cert-text">
-                            <p>Database Fundamentals</p>
-                            <span>Mahara-Tech, ITI Platform</span>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-image="images/certificates/cert-itida-gigs.png">
-                        <img src="images/certificates/cert-itida-gigs.png" alt="ITIDA Gigs Freelance Training Program" class="cert-thumbnail">
-                        <div class="cert-text">
-                            <p>ITIDA Gigs Freelance Training Program</p>
-                            <span>ITIDA &amp; eyouth</span>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-image="images/certificates/cert-mostaql-freelancer.png">
-                        <img src="images/certificates/cert-mostaql-freelancer.png" alt="Getting Started as a Freelancer" class="cert-thumbnail">
-                        <div class="cert-text">
-                            <p>Getting Started as a Freelancer</p>
-                            <span>Mostaql</span>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-image="images/certificates/cert-freelancing-basics.png">
-                        <img src="images/certificates/cert-freelancing-basics.png" alt="Freelancing Basics" class="cert-thumbnail">
-                        <div class="cert-text">
-                            <p>Freelancing Basics</p>
-                            <span>Mahara-Tech, ITI Platform</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-<!-- Skills -->
-        <section id="skills">
-            <div class="container">
-                <h2>My Skills</h2>
-                <div class="skills-wrapper">
-                    <div class="skills-category">
-                        <h3>Technical Skills</h3>
-                        <ul>
-                            <li>BI & Visualization: Power BI (DAX, Data Modeling), Tableau, Excel (Power Query, Power Pivot)</li>
-                            <li>Databases & SQL: SQL Server, PostgreSQL, MongoDB (CTEs, Window Functions, Stored Procedures)</li>
-                            <li>Data Engineering: ETL with SSIS, SSAS (cubes, MDX), SSRS reporting</li>
-                            <li>Python: Pandas, NumPy, Matplotlib, Seaborn, Plotly, Streamlit, Web Scraping</li>
-                            <li>Data Modeling: Star & Snowflake Schema, Fact & Dimension design</li>
-                            <li>Machine Learning: Scikit-learn (regression, classification, clustering, evaluation & tuning)</li>
-                            <li>Git & GitHub, AI-assisted analysis (Claude, ChatGPT)</li>
-                        </ul>
-                    </div>
-                    <div class="skills-category">
-                        <h3>Soft Skills</h3>
-                        <ul>
-                            <li>Analytical Thinking</li>
-                            <li>Problem-Solving</li>
-                            <li>Communication & Presentation</li>
-                            <li>Stakeholder Management</li>
-                            <li>Requirements Gathering & KPI Analysis</li>
-                            <li>Attention to Detail</li>
-                            <li>Training & Mentoring</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-
-        <!-- Tools -->
-        <section id="tools">
-            <div class="container">
-                <h2>Tools & Technologies</h2>
-                <div class="tools-grid">
-                    <div class="tool-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI"><span>Power BI</span></div>
-                    <div class="tool-card"><img src="tool-sql.png" alt="SQL Server"><span>SQL Server</span></div>
-                    <div class="tool-card"><img src="tool-python.png" alt="Python"><span>Python</span></div>
-                    <div class="tool-card"><img src="tool-excel.png" alt="Excel"><span>Excel</span></div>
-                    <div class="tool-card"><img src="tool-streamlit.svg" alt="Streamlit"><span>Streamlit</span></div>
-                    <div class="tool-card"><img src="tool-sklearn.svg" alt="Scikit-learn"><span>Scikit-learn</span></div>
-                </div>
-            </div>
-            </div>
-        </section>
-
-        
-
-
-
-<!--               Contact Section (Enhanced)           -->
-<!-- Contact -->
-        <section id="contact">
-            <div class="container">
-                <h2>Get In Touch</h2>
-                <p>I'm currently seeking new opportunities and am excited to connect. Whether you have a question, a project idea, or just want to say hello — feel free to reach out!</p>
-                <div class="contact-links">
-                    <a href="mailto:tarek.ismail.shabana@gmail.com" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-label">Email</span>
-                            <span class="contact-value">tarek.ismail.shabana@gmail.com</span>
-                        </div>
-                    </a>
-                    <a href="https://wa.me/201090046430" target="_blank" rel="noopener" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-label">WhatsApp</span>
-                            <span class="contact-value">+20 10 9004 6430</span>
-                        </div>
-                    </a>
-                    <a href="https://www.linkedin.com/in/tarekshabana2002" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-label">LinkedIn</span>
-                            <span class="contact-value">linkedin.com/in/tarekshabana2002</span>
-                        </div>
-                    </a>
-                    <a href="https://github.com/engTarekIsmail" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-label">GitHub</span>
-                            <span class="contact-value">github.com/engTarekIsmail</span>
-                        </div>
-                    </a>
-                    <a href="https://khamsat.com/user/tarek_ismail001" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-label">Khamsat</span>
-                            <span class="contact-value">khamsat.com/user/tarek_ismail001</span>
-                        </div>
-                    </a>
-                    <a href="https://mostaql.com/u/Tarek_Ismail01" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-label">Mostaql</span>
-                            <span class="contact-value">mostaql.com/u/Tarek_Ismail01</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Tarek Ismail Shabana. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Modal for viewing full-size certificate -->
-    <div id="modal" class="modal">
-        <span class="close-button" id="close-modal">&times;</span>
-        <img class="modal-content" id="modal-image">
-    </div>
-
-    <script src="script.js"></script>
+      );
+    }
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 </html>
