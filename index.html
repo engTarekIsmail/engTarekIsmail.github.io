@@ -133,7 +133,12 @@
     const JOBS = [
       { role: "Data Analyst (Freelance)", org: "Mostaql · Remote", date: "Jan 2026 – Present", bullets: ["Completed 20+ projects with a 5-star rating, delivering end-to-end analytics and BI solutions using Python, SQL, Power BI, Tableau, and Excel.", "Performed data extraction, web scraping, cleaning, EDA, and visualization to produce reliable business insights.", "Built interactive dashboards, analytical reports, and machine learning models tailored to client requirements.", "Gathered requirements and defined KPIs directly with clients to deliver customized reporting solutions."], tags: ["Power BI", "Python", "SQL", "Tableau", "Excel"] },
       { role: "BI Developer (Internship)", org: "Intensive Code Camp, ITI · Beni Suef", date: "Jan 2026 – Jun 2026", bullets: ["Completed a 6-month intensive BI program, building interactive Power BI dashboards using Power Query, DAX, and data modeling.", "Collected, cleaned, and transformed data from multiple sources to ensure accuracy and consistency.", "Built ETL workflows and optimized data models to improve reporting performance.", "Designed KPI dashboards that delivered actionable insights for decision-making."], tags: ["Power BI", "Power Query", "DAX", "ETL", "Data Modeling"] },
-      { role: "Programming Instructor", org: "Jupiter Education · Remote · Part-time", date: "Mar 2026 – Present", bullets: ["Delivered structured programming lessons to young learners, introducing coding fundamentals and computational thinking concepts.", "Guided students in developing problem-solving, logical reasoning, and algorithmic thinking through hands-on activities and projects."], tags: ["Teaching", "Mentoring", "Problem Solving"] }
+      { role: "Programming Instructor", org: "Jupiter Education · Remote · Part-time", date: "Mar 2026 – Present", bullets: [
+        "Delivered 300+ programming and data analysis lessons, covering Python, Scratch, PictoBlox, and data analysis fundamentals through structured, hands-on sessions.",
+        "Taught and mentored 25+ students, developing their problem-solving, logical reasoning, and analytical skills through coding exercises and practical projects.",
+        "Recognized with 3 performance awards: Best Teacher of the Month (twice) and Best Employee of the Month (once).",
+        "Adapted teaching methods to different learning levels, simplifying complex technical concepts and improving students' practical programming and analytical skills."
+      ], tags: ["Python", "Scratch", "Data Analysis", "Teaching", "Mentoring", "Problem Solving"] }
     ];
 
     const VOLUNTEER_PHOTOS = [
@@ -382,8 +387,9 @@
                 <div><span className="eyebrow">Who I am</span><h2 className="text-3xl md:text-4xl font-display font-bold">About Me</h2></div>
                 <p className="text-brand-muted leading-relaxed">I'm a Data Analyst and BI Developer based in Cairo, with an ITI diploma in Business Intelligence & Data Analysis and a B.Sc. in Computer and Control Engineering from Shorouk Academy.</p>
                 <p className="text-brand-muted leading-relaxed">I build end-to-end analytics solutions: SQL Server and ETL, Power BI dashboards, SSRS reports, and Python machine learning. As a freelancer I've delivered 20+ projects for 15+ clients, working directly with them to define KPIs and deliver exactly what they need.</p>
+                <p className="text-brand-muted leading-relaxed">Beyond analytics, I teach programming and data analysis part-time at Jupiter Education. I've delivered 300+ lessons and mentored 25+ students, and I was recognized with 3 performance awards: Best Teacher of the Month (twice) and Best Employee of the Month (once).</p>
                 <ul className="space-y-3 pt-4 mb-6">
-                  {["ITI graduation project: 20 dashboards, 6 SSRS reports, 96.3% accurate ML model", "5-star rated freelancer on Mostaql", "Part-time programming instructor who loves teaching"].map((item, i) => (
+                  {["ITI graduation project: 20 dashboards, 6 SSRS reports, 96.3% accurate ML model", "5-star rated freelancer on Mostaql", "Programming instructor with 300+ lessons delivered"].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-brand-text"><span className="w-6 h-6 rounded-full bg-brand-teal/30 flex items-center justify-center text-brand-tealDark text-sm font-bold">✓</span>{item}</li>
                   ))}
                 </ul>
